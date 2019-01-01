@@ -192,13 +192,19 @@
 
           <ul class="lb-album">
             <li>
-              <a id="dlWin64" href="https://github.com/RailRunner166/MyRPC/releases/download/1.1.0/MyRPC_v1.1.0_x64.msi" target="_blank">
+              <a id="dlWin64" target="_blank">
 								<img src="https://i.railrunner16.me/ZIfYIBc.png" width="150" height="150" alt="">
 								<span><i class="fa fa-windows"></i> <i class="fa fa-download"></i> x64</span>
 							</a>
             </li>
             <li>
-              <a id="dlWin32" href="https://github.com/RailRunner166/MyRPC/releases/download/1.1.0/MyRPC_v1.1.0_x32.msi" target="_blank">
+              <a id="dlWin32" target="_blank">
+								<img src="https://i.railrunner16.me/ZIfYIBc.png" width="150" height="150" alt="">
+								<span><i class="fa fa-windows"></i> <i class="fa fa-download"></i> x32</span>
+							</a>
+            </li>
+	    <li>
+              <a id="dlLinux" target="_blank">
 								<img src="https://i.railrunner16.me/ZIfYIBc.png" width="150" height="150" alt="">
 								<span><i class="fa fa-windows"></i> <i class="fa fa-download"></i> x32</span>
 							</a>
@@ -428,9 +434,11 @@
       $.getJSON("https://api.github.com/repos/RailRunner166/MyRPC/releases/latest").done(function (release) {
         var winArch32 = release.assets[0];
         var winArch64 = release.assets[1];
+        var linux = release.assets[2];
         
         $('#dlWin32').attr('href', winArch32);
         $('#dlWin64').attr('href', winArch64);
+        $('#dlLinux').attr('href', linux);
       });
     }
   </script>
