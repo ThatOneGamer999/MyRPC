@@ -203,99 +203,19 @@
 								<span><i class="fa fa-windows"></i> x64</span>
 							</a>
             </li>
-       <!--     <li>-->
-       <!--       <a href="#image-3">-->
-							<!--	<img src="img/works/thumbs/3.jpg" alt="">-->
-							<!--	<span>+</span>-->
-							<!--</a>-->
-       <!--       <div class="lb-overlay" id="image-3">-->
-       <!--         <a href="#page" class="lb-close">x Close</a>-->
-       <!--         <img src="img/works/3.jpg" alt="" />-->
-       <!--         <div>-->
-       <!--           <h3>Sleek <span>/Design/</span></h3>-->
-       <!--           <p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>-->
-       <!--         </div>-->
-
-       <!--       </div>-->
-       <!--     </li>-->
-       <!--     <li>-->
-       <!--       <a href="#image-4">-->
-							<!--	<img src="img/works/thumbs/4.jpg" alt="">-->
-							<!--	<span>+</span>-->
-							<!--</a>-->
-       <!--       <div class="lb-overlay" id="image-4">-->
-       <!--         <a href="#page" class="lb-close">x Close</a>-->
-       <!--         <img src="img/works/4.jpg" alt="" />-->
-       <!--         <div>-->
-       <!--           <h3>Sleek <span>/Design/</span></h3>-->
-       <!--           <p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>-->
-       <!--         </div>-->
-
-       <!--       </div>-->
-       <!--     </li>-->
-
-       <!--     <li>-->
-       <!--       <a href="#image-5">-->
-							<!--	<img src="img/works/thumbs/5.jpg" alt="">-->
-							<!--	<span>+</span>-->
-							<!--</a>-->
-       <!--       <div class="lb-overlay" id="image-5">-->
-       <!--         <a href="#page" class="lb-close">X</a>-->
-       <!--         <img src="img/works/5.jpg" alt="" />-->
-       <!--         <div>-->
-       <!--           <h3>Sleek <span>/Design/</span></h3>-->
-       <!--           <p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>-->
-       <!--         </div>-->
-
-       <!--       </div>-->
-       <!--     </li>-->
-       <!--     <li>-->
-       <!--       <a href="#image-6">-->
-							<!--	<img src="img/works/thumbs/6.jpg" alt="">-->
-							<!--	<span>+</span>-->
-							<!--</a>-->
-       <!--       <div class="lb-overlay" id="image-6">-->
-       <!--         <a href="#page" class="lb-close">x Close</a>-->
-       <!--         <img src="img/works/6.jpg" alt="" />-->
-       <!--         <div>-->
-       <!--           <h3>Sleek <span>/Design/</span></h3>-->
-       <!--           <p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>-->
-       <!--         </div>-->
-
-       <!--       </div>-->
-       <!--     </li>-->
-       <!--     <li>-->
-       <!--       <a href="#image-7">-->
-							<!--	<img src="img/works/thumbs/7.jpg" alt="">-->
-							<!--	<span>+</span>-->
-							<!--</a>-->
-       <!--       <div class="lb-overlay" id="image-7">-->
-       <!--         <a href="#page" class="lb-close">x Close</a>-->
-       <!--         <img src="img/works/7.jpg" alt="" />-->
-       <!--         <div>-->
-       <!--           <h3>Sleek <span>/Design/</span></h3>-->
-       <!--           <p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>-->
-       <!--         </div>-->
-
-       <!--       </div>-->
-       <!--     </li>-->
-       <!--     <li>-->
-       <!--       <a href="#image-8">-->
-							<!--	<img src="img/works/thumbs/8.jpg" alt="">-->
-							<!--	<span>+</span>-->
-							<!--</a>-->
-       <!--       <div class="lb-overlay" id="image-8">-->
-       <!--         <a href="#page" class="lb-close">x Close</a>-->
-       <!--         <img src="img/works/8.jpg" alt="" />-->
-       <!--         <div>-->
-       <!--           <h3>Sleek <span>/Design/</span></h3>-->
-       <!--           <p>Lorem ipsum dolor sit amet, ut decore iracundia urbanitas sit.</p>-->
-       <!--         </div>-->
-
-       <!--       </div>-->
-       <!--     </li>-->
+	    <li>
+              <a id="dlDeb32" target="_blank">
+								<img src="https://i.railrunner16.me/ZIfYIBc.png" width="150" height="150" alt="">
+								<span><i class="fa fa-debian"></i> x32</span>
+							</a>
+            </li>
+	    <li>
+              <a id="dlDeb64" target="_blank">
+								<img src="https://i.railrunner16.me/ZIfYIBc.png" width="150" height="150" alt="">
+								<span><i class="fa fa-debian"></i> x64</span>
+							</a>
+            </li>
           </ul>
-
         </div>
       </div>
     </div>
@@ -426,11 +346,15 @@
     
     function GetLatestRelease() {
       $.getJSON("https://api.github.com/repos/RailRunner166/MyRPC/releases/latest").done(function (release) {
-        var winArch32 = release.assets[0].browser_download_url;
-        var winArch64 = release.assets[1].browser_download_url;
+	var debArch32 = release.assets[0].browser_download_url;
+	var debArch64 = release.assets[1].browser_download_url;
+        var winArch32 = release.assets[2].browser_download_url;
+        var winArch64 = release.assets[3].browser_download_url;
 	
         $('#dlWin64').attr('href', winArch64);
         $('#dlWin32').attr('href', winArch32);
+	$('#dlDeb64').attr('href', debArch64);
+        $('#dlDeb32').attr('href', debArch32);
       });
     }
   </script>
